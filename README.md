@@ -55,7 +55,7 @@ A modern, real-time web-based queuing system designed specifically for cashier e
 
 1. **Extract the project files**
    ```bash
-   unzip cashier-queue-system-frontend-only-with-sound.zip
+   git clone https://github.com/januaraliosada/cashier-queue-system.git
    cd cashier-queue-system
    ```
 
