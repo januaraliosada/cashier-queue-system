@@ -8,7 +8,7 @@ const soundNotification = new SoundNotification()
 
 class QueueStorage {
   constructor() {
-    this.storageKey = 'cashier_queue_state'
+    this.storageKey = 'window_queue_state'
     this.listeners = new Set()
     this.broadcastChannel = null
     

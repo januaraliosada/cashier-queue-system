@@ -1,13 +1,13 @@
-# Cashier Queue Management System (Frontend-Only)
+# Window Queue Management System (Frontend-Only)
 
-A modern, real-time web-based queuing system designed specifically for cashier environments. This system ensures proper customer flow, prevents queue overtaking, and provides professional audio notifications - all without requiring any backend infrastructure or database.
+A modern, real-time web-based queuing system designed specifically for window environments. This system ensures proper customer flow, prevents queue overtaking, and provides professional audio notifications - all without requiring any backend infrastructure or database.
 
 ## 🚀 Features
 
 ### Core Queue Management
 - **Real-time Queue Processing**: Add customers, call next customer, complete service
 - **Strict Queue Order**: FIFO (First In, First Out) enforcement prevents overtaking
-- **Multi-Window Support**: Support for up to 5 cashier windows simultaneously
+- **Multi-Window Support**: Support for up to 5 window windows simultaneously
 - **Daily Queue Reset**: Reset queue numbering at the start of each day/shift
 - **Professional UI**: Clean, modern interface suitable for business environments
 
@@ -18,7 +18,7 @@ A modern, real-time web-based queuing system designed specifically for cashier e
 - **Accessibility Enhancement**: Helps customers with visual impairments
 
 ### Dual Interface System
-- **Cashier Interface** (`/cashier`): Complete queue management for staff
+- **Window Interface** (`/window`): Complete queue management for staff
 - **Public Display** (`/display`): Customer-facing queue status display
 - **Home Page** (`/`): Interface selection and navigation
 
@@ -55,8 +55,8 @@ A modern, real-time web-based queuing system designed specifically for cashier e
 
 1. **Extract the project files**
    ```bash
-   git clone https://github.com/januaraliosada/cashier-queue-system.git
-   cd cashier-queue-system
+   git clone
+   cd window-queue-system
    ```
 
 2. **Install dependencies**
@@ -75,13 +75,13 @@ A modern, real-time web-based queuing system designed specifically for cashier e
 
 4. **Open in browser**
    - Navigate to `http://localhost:5173`
-   - Choose between Cashier Interface or Public Display
+   - Choose between Window Interface or Public Display
 
 ## 🖥️ Usage Guide
 
-### For Cashiers
+### For Windows
 
-1. **Access Cashier Interface**: Go to `/cashier` or click "Cashier Interface" from home
+1. **Access Window Interface**: Go to `/window` or click "Window Interface" from home
 2. **Select Your Window**: Choose your window number (1-5) from the dropdown
 3. **Add Customers**: Click "Add New Customer" to add people to the queue
 4. **Call Next Customer**: Click "Call Next Customer" to serve the next person
@@ -147,7 +147,7 @@ The system uses advanced browser APIs for real-time synchronization:
 3. **BroadcastChannel**: Enhanced messaging
 4. **Event Listeners**: Real-time UI updates
 
-This ensures all cashier stations and public displays stay perfectly synchronized without any server infrastructure.
+This ensures all window stations and public displays stay perfectly synchronized without any server infrastructure.
 
 ## 🎵 Sound System
 
@@ -159,13 +159,13 @@ This ensures all cashier stations and public displays stay perfectly synchronize
 
 ### Sound Triggers
 - Customer called to service window
-- Plays on both cashier and public interfaces
+- Plays on both window and public interfaces
 - Automatic volume and timing optimization
 
 ## 🚀 Advanced Features
 
 ### Multi-Station Setup
-- Run cashier interface on multiple computers
+- Run window interface on multiple computers
 - Display public interface on large screens
 - All stations stay synchronized automatically
 
@@ -195,7 +195,7 @@ This ensures all cashier stations and public displays stay perfectly synchronize
 
 **Queue reset not working?**
 - Confirm the reset action in the dialog
-- Check if multiple cashiers are trying to reset simultaneously
+- Check if multiple windows are trying to reset simultaneously
 
 ## 📄 License
 

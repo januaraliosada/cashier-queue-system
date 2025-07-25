@@ -17,20 +17,20 @@ function HomePage() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Cashier Interface */}
-          <Link to="/cashier">
+          {/* Window Interface */}
+          <Link to="/window">
             <div className="bg-white rounded-xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-blue-300">
               <div className="text-blue-600 mb-4">
                 <Users className="h-16 w-16 mx-auto" />
               </div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Cashier Interface
+                Window Interface
               </h2>
               <p className="text-gray-600 mb-6">
                 Manage the queue, call customers, and handle service operations
               </p>
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                Access Cashier Panel
+                Access Window Panel
               </Button>
             </div>
           </Link>
@@ -67,7 +67,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/cashier" element={<App />} />
+        <Route path="/window" element={<App />} />
         <Route path="/display" element={<PublicDisplay />} />
       </Routes>
     </Router>

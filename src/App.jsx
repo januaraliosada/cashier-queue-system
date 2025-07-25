@@ -81,7 +81,7 @@ function App() {
         <div className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Queue Management System</h1>
-            <p className="text-gray-600">Cashier: Cashier 1</p>
+            <p className="text-gray-900 font-bold">{selectedWindowData?.window_name || 'None'}</p>
           </div>
           <div className="flex gap-2">
             <Select value={selectedWindow} onValueChange={setSelectedWindow}>
