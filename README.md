@@ -1,119 +1,213 @@
-# Cashier Queue Management System
+# Cashier Queue Management System (Frontend-Only)
 
-A real-time web-based queuing system designed for cashier environments to ensure proper customer flow and prevent overtaking.
+A modern, real-time web-based queuing system designed specifically for cashier environments. This system ensures proper customer flow, prevents queue overtaking, and provides professional audio notifications - all without requiring any backend infrastructure or database.
 
-## Table of Contents
+## 🚀 Features
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Application](#running-the-application)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+### Core Queue Management
+- **Real-time Queue Processing**: Add customers, call next customer, complete service
+- **Strict Queue Order**: FIFO (First In, First Out) enforcement prevents overtaking
+- **Multi-Window Support**: Support for up to 5 cashier windows simultaneously
+- **Daily Queue Reset**: Reset queue numbering at the start of each day/shift
+- **Professional UI**: Clean, modern interface suitable for business environments
 
-## Introduction
+### Sound Notifications
+- **Audio Feedback**: Pleasant two-tone chime when calling next customer
+- **Cross-Browser Compatibility**: Uses Web Audio API with fallback support
+- **Professional Sound Design**: Non-intrusive notification sounds
+- **Accessibility Enhancement**: Helps customers with visual impairments
 
-This project provides a robust and intuitive web application for managing customer queues in a cashier environment. Its primary goal is to enforce a strict First-In, First-Out (FIFO) order, eliminating the possibility of customers being served out of turn or 'overtaking' others. Designed with real-time updates in mind, it ensures that all cashier stations have a synchronized view of the queue, enhancing efficiency and customer satisfaction.
+### Dual Interface System
+- **Cashier Interface** (`/cashier`): Complete queue management for staff
+- **Public Display** (`/display`): Customer-facing queue status display
+- **Home Page** (`/`): Interface selection and navigation
 
-## Features
+### Real-time Synchronization
+- **Cross-Tab Sync**: Perfect synchronization across multiple browser tabs/windows
+- **localStorage Integration**: Persistent data storage in browser
+- **BroadcastChannel API**: Enhanced real-time communication
+- **No Backend Required**: Completely frontend-only solution
 
-- **Real-time Queue Display:** A clear, dynamic display of the current queue status, visible to both cashiers and, potentially, customers.
-- **Strict FIFO Order:** Ensures customers are served in the exact order they joined the queue, preventing any form of overtaking.
-- **Customer Check-in/Queue Entry:** Functionality to add new customers to the queue, either manually by staff or via an automated process (e.g., a self-service kiosk, which can be integrated).
-- **Cashier Queue Management:** Intuitive controls for cashiers to:
-  - **Call Next Customer:** Move the next customer from the waiting queue to the 'currently serving' status.
-  - **Complete Service:** Mark a customer as served, removing them from the 'currently serving' status and making way for the next customer.
-  - **Queue Overview:** At-a-glance statistics including total customers in queue, currently serving customer, average wait time, and the next available queue number.
-- **Responsive Design:** The application is built to be accessible and functional across various devices, from desktop monitors at cashier stations to tablets or mobile phones for management oversight.
-- **Scalability:** Designed to support multiple cashier stations accessing the same centralized queue data simultaneously.
+## 🎯 Perfect For
 
-## Technologies Used
+- Retail stores and service centers
+- Clinics and medical facilities
+- Banks and financial institutions
+- Government service offices
+- Any business requiring organized customer queuing
 
-### Frontend
-- **React:** A JavaScript library for building user interfaces.
-- **Vite:** A fast build tool that provides an instant development server.
-- **Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
-- **shadcn/ui:** A collection of re-usable components built with Radix UI and Tailwind CSS.
-- **Lucide Icons:** A beautiful, open-source icon library.
+## 🛠️ Technical Stack
 
-### Backend
-*(To be implemented - future phases will detail the backend technologies, likely Node.js/Express or Python/Flask with WebSockets for real-time communication and a suitable database like PostgreSQL or MongoDB.)*
+- **Frontend**: React 18 with Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **State Management**: localStorage + BroadcastChannel API
+- **Audio**: Web Audio API with fallback support
+- **Icons**: Lucide React
+- **Deployment**: Static files (no server required)
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## 📦 Installation & Setup
 
 ### Prerequisites
+- Node.js (version 16 or higher)
+- npm or pnpm package manager
 
-Before you begin, ensure you have the following installed:
-- Node.js (LTS version recommended)
-- npm or pnpm (pnpm is used in this project)
+### Quick Start
 
-### Installation
-
-1. Clone the repository:
+1. **Extract the project files**
    ```bash
-   git clone https://github.com/your-username/cashier-queue-system.git
+   unzip cashier-queue-system-frontend-only-with-sound.zip
    cd cashier-queue-system
    ```
 
-2. Install frontend dependencies:
+2. **Install dependencies**
    ```bash
    pnpm install
+   # or
+   npm install
    ```
 
-### Running the Application
+3. **Start development server**
+   ```bash
+   pnpm run dev
+   # or
+   npm run dev
+   ```
 
-To start the development server for the frontend:
+4. **Open in browser**
+   - Navigate to `http://localhost:5173`
+   - Choose between Cashier Interface or Public Display
 
+## 🖥️ Usage Guide
+
+### For Cashiers
+
+1. **Access Cashier Interface**: Go to `/cashier` or click "Cashier Interface" from home
+2. **Select Your Window**: Choose your window number (1-5) from the dropdown
+3. **Add Customers**: Click "Add New Customer" to add people to the queue
+4. **Call Next Customer**: Click "Call Next Customer" to serve the next person
+   - Plays audio notification automatically
+   - Customer is assigned to your window
+5. **Complete Service**: Click "Complete Service" when finished with a customer
+6. **Reset Queue**: Use "Reset Queue" to start fresh (requires confirmation)
+
+### For Public Display
+
+1. **Access Public Display**: Go to `/display` or click "Public Display" from home
+2. **View Current Status**: See who's being served at which window
+3. **Check Queue Position**: View waiting customers and estimated times
+4. **Monitor All Windows**: See status of all 5 service windows
+
+## 🔧 Configuration
+
+### Window Management
+- Default: 5 windows (Window 1-5)
+- Easily configurable in `src/utils/queueStorage.js`
+- Each window operates independently
+
+### Sound Settings
+- Default: Two-tone chime (880Hz + 660Hz)
+- Customizable in `src/utils/soundNotification.js`
+- Volume and duration adjustable
+
+### Queue Numbering
+- Format: A001, A002, A003, etc.
+- Resets to A001 when queue is reset
+- Configurable prefix in queue storage
+
+## 🌐 Deployment Options
+
+### Static Hosting
+Deploy to any static hosting service:
+- Netlify
+- Vercel
+- GitHub Pages
+- AWS S3 + CloudFront
+- Any web server
+
+### Build for Production
 ```bash
-pnpm run dev
+pnpm run build
+# or
+npm run build
 ```
 
-The application will typically be available at `http://localhost:5173`. Open this URL in your web browser.
+The `dist/` folder contains all files needed for deployment.
 
-## Usage
+### Local Network Deployment
+1. Build the project
+2. Serve the `dist/` folder on your local network
+3. Access from multiple devices using the server IP
 
-Once the application is running, cashiers can use the interface to:
+## 🔄 How Synchronization Works
 
-- **Add New Customer:** Click the "Add New Customer" button to generate a new queue number and add it to the waiting list.
-- **Call Next Customer:** Click the "Call Next Customer" button to move the first person in the waiting queue to the "Currently Serving" section. This button will be disabled if no one is in the queue or if a customer is already being served.
-- **Complete Service:** Once a customer has been served, click the "Complete Service" button to clear the "Currently Serving" section, making it ready for the next customer.
+The system uses advanced browser APIs for real-time synchronization:
 
-## Project Structure
+1. **localStorage**: Persistent data storage
+2. **StorageEvent**: Cross-tab communication
+3. **BroadcastChannel**: Enhanced messaging
+4. **Event Listeners**: Real-time UI updates
 
-```
-cashier-queue-system/
-├── public/
-├── src/
-│   ├── assets/             # Static assets like images
-│   ├── components/         # Reusable React components (including shadcn/ui)
-│   │   └── ui/
-│   ├── hooks/              # Custom React hooks
-│   ├── lib/                # Utility functions and libraries
-│   ├── App.css             # App-specific styles (Tailwind CSS imports)
-│   ├── App.jsx             # Main application component
-│   ├── index.css           # Global styles
-│   └── main.jsx            # Entry point for the React application
-├── components.json         # shadcn/ui configuration
-├── eslint.config.js        # ESLint configuration
-├── index.html              # Main HTML file
-├── package.json            # Project dependencies and scripts
-├── pnpm-lock.yaml          # Lock file for dependencies
-└── vite.config.js          # Vite bundler configuration
-```
+This ensures all cashier stations and public displays stay perfectly synchronized without any server infrastructure.
 
-## Contributing
+## 🎵 Sound System
 
-Contributions are welcome! Please feel free to submit a Pull Request or open an issue if you find a bug or have a feature request.
+### Audio Features
+- **Web Audio API**: High-quality sound generation
+- **Two-tone Chime**: Professional notification sound
+- **Browser Compliance**: Respects autoplay policies
+- **Fallback Support**: Works across all modern browsers
 
-## License
+### Sound Triggers
+- Customer called to service window
+- Plays on both cashier and public interfaces
+- Automatic volume and timing optimization
 
-This project is licensed under the MIT License - see the `LICENSE` file for details. (Note: A `LICENSE` file will need to be added to the repository.)
+## 🚀 Advanced Features
 
+### Multi-Station Setup
+- Run cashier interface on multiple computers
+- Display public interface on large screens
+- All stations stay synchronized automatically
+
+### Offline Capability
+- Works without internet connection
+- Data persists in browser storage
+- Synchronization resumes when connection restored
+
+### Mobile Responsive
+- Works on tablets and mobile devices
+- Touch-friendly interface
+- Responsive design for all screen sizes
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Sound not playing?**
+- Ensure user has interacted with the page first
+- Check browser audio permissions
+- Verify volume settings
+
+**Synchronization not working?**
+- Ensure all tabs are from the same domain
+- Check if localStorage is enabled
+- Refresh all browser tabs
+
+**Queue reset not working?**
+- Confirm the reset action in the dialog
+- Check if multiple cashiers are trying to reset simultaneously
+
+## 📄 License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+## 🤝 Support
+
+For support, feature requests, or bug reports, please refer to the project documentation or contact your system administrator.
+
+---
+
+**Built with ❤️ for efficient customer service management**
+
+---
 
